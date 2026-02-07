@@ -9,7 +9,13 @@ const authRoutes = require("./routes/authRoutes");
 const app = express();
 
 // Middleware
-app.use(cors());
+// Enable CORS for your frontend
+app.use(
+  cors({
+    origin: "http://localhost:5173", // allow your local frontend
+    credentials: true, // if using cookies/auth
+  }),
+);
 app.use(express.json());
 
 // Routes
