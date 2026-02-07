@@ -18,6 +18,11 @@ app.use(
 );
 app.use(express.json());
 
+// Health Check Route ✅
+app.get("/api/health", (req, res) => {
+  res.status(200).json({ status: "Backend is running!" });
+});
+
 // Routes
 app.use("/api/issues", issueRoutes);
 app.use("/api/auth", authRoutes);
