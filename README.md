@@ -15,6 +15,9 @@ Email: newnop@email.com
 Password: 123456
 ```
 
+> **Note:** These are example credentials for demonstration purposes.  
+> If you clone the repository, you will need to **register or create a user with these credentials** in your own database to log in.
+
 ---
 
 ## ✨ Features
@@ -91,8 +94,8 @@ Password: 123456
 ### 1️⃣ Clone Repository
 
 ```bash
-git clone
-cd issue-tracker
+git clone https://github.com/chamalka1998/Issue-Management-System.git
+cd Issue-Management-System
 ```
 
 ---
