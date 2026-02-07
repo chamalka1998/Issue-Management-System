@@ -1,0 +1,77 @@
+/* 1. DEFINE VARIABLES FIRST */
+:root {
+  /* Google Fonts */
+  --font-body:
+    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-heading: "Plus Jakarta Sans", sans-serif;
+
+  /* Default Light Mode Colors (so they exist on load) */
+  --bg-color: #f4f6f8;
+  --text-primary: #2c3e50;
+  --text-secondary: #636e72;
+}
+
+/* 2. GLOBAL RESET */
+* {
+  box-sizing: border-box;
+  /* This ensures the font applies even if specific elements try to override it */
+  font-family: var(--font-body);
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+
+  /* Apply variables */
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+
+  /* Modern font rendering */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Smooth theme transition */
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* 3. TYPOGRAPHY RULES */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.stat-number,
+.dashboard-header h1 {
+  font-family: var(--font-heading) !important;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+}
+
+.create-btn,
+.stat-label,
+.navbar-link,
+.custom-toast {
+  font-family: var(--font-body);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+/* 4. THEME PERSISTENCE HELPER */
+/* Applying variables to 'body' ensures the background stays correct on refresh */
+body.dark-mode {
+  background-color: #1e293b; /* Matches your lighter slate */
+  color: #f8fafc;
+}

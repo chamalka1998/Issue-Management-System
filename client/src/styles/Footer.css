@@ -1,0 +1,29 @@
+/* src/styles/Footer.css */
+
+.simple-footer {
+  width: 100%;
+  padding: 20px;
+  text-align: center;
+  margin-top: auto; /* Keeps it at the bottom */
+
+  /* Theme-aware styles */
+  background-color: var(--card-bg);
+  color: var(--text-primary);
+  border-top: 1px solid var(--border-color);
+
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+.simple-footer p {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.simple-footer small {
+  display: block;
+  margin-top: 5px;
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+}

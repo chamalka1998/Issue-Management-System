@@ -1,0 +1,19 @@
+/* target the internal toast div specifically */
+.dark-mode .custom-toast {
+  background-color: #2d2d2d !important;
+  color: #ecf0f1 !important;
+  border: 1px solid #444 !important;
+}
+
+.light-mode .custom-toast {
+  background-color: #ffffff !important;
+  color: #2c3e50 !important;
+  border: 1px solid #dfe6e9 !important;
+}
+
+/* Common styles */
+.custom-toast {
+  border-radius: 12px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+  padding: 12px 20px !important;
+}

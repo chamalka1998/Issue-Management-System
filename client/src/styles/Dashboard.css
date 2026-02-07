@@ -1,0 +1,145 @@
+/* 1. Global Layout & Theming */
+:root {
+  --bg-color: #f4f6f8;
+  --card-bg: #ffffff;
+  --text-primary: #2c3e50;
+  --text-secondary: #636e72;
+  --border-color: #dfe6e9;
+  --primary-color: #0984e3;
+  --danger-color: #d63031;
+  --success-color: #00b894;
+  --warning-color: #fdcb6e;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.dark-mode {
+  --bg-color: #1e293b;
+  --card-bg: #111827; /* elevated surface */
+  --text-primary: #f1f5f9; /* near white */
+  --text-secondary: #94a3b8; /* muted */
+  --border-color: #1f2937;
+  --shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+
+  /* optional polish */
+  --primary-color: #3b82f6;
+  --danger-color: #ef4444;
+  --success-color: #22c55e;
+  --warning-color: #f59e0b;
+}
+
+/* 2. Container Logic */
+.dashboard-container {
+  width: 100%;
+  min-height: 100vh;
+  padding: 2rem;
+  background-color: var(--bg-color);
+  transition: background-color 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 3. Header & Navigation */
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.dashboard-header h1 {
+  color: var(--text-primary);
+  font-size: clamp(1.5rem, 5vw, 2.2rem); /* Fluid typography */
+  margin: 0;
+  font-weight: 800;
+}
+
+.create-btn {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 0.8rem 1.8rem;
+  border: none;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 10px rgba(9, 132, 227, 0.3);
+}
+
+.create-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(9, 132, 227, 0.4);
+  filter: brightness(1.1);
+}
+
+/* 4. Stats Bar (KPI Cards) */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.stat-card {
+  background: var(--card-bg);
+  padding: 1.8rem;
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  text-align: left;
+  border-left: 6px solid transparent;
+  transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: scale(1.02);
+}
+
+.stat-card.open {
+  border-color: var(--primary-color);
+}
+.stat-card.progress {
+  border-color: var(--warning-color);
+}
+.stat-card.resolved {
+  border-color: var(--success-color);
+}
+
+.stat-number {
+  display: block;
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1;
+  margin-bottom: 5px;
+}
+
+.stat-label {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+}
+
+/* 5. Issues Grid */
+.issue-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
+  padding-bottom: 4rem; /* Spacing for footer */
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .dashboard-container {
+    padding: 1rem;
+  }
+  .dashboard-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .create-btn {
+    width: 100%;
+  }
+}

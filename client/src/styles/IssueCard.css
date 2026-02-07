@@ -1,0 +1,184 @@
+/* src/styles/IssueCard.css */
+
+.issue-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+  box-shadow: var(--shadow);
+}
+
+.issue-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Header Logic */
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.card-header h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+/* Priority Select Styling (Replacing the static Badge) */
+.badge-select {
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+.badge-select.High {
+  background: #ffeaa7;
+  color: #d35400;
+}
+.badge-select.Medium {
+  background: #dfe6e9;
+  color: #2d3436;
+}
+.badge-select.Low {
+  background: #c8f7c5;
+  color: #27ae60;
+}
+
+/* Description */
+.card-desc {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  flex-grow: 1;
+}
+
+/* Footer / Status Controls */
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.status-control {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.status-control label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.status-select {
+  background: var(--bg-color);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  outline: none;
+}
+
+/* Delete Icon Button */
+.btn-icon-delete {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 5px;
+  transition: background 0.2s;
+}
+
+.btn-icon-delete:hover {
+  background: rgba(255, 118, 117, 0.1);
+}
+
+/* --- TOAST CONFIRM STYLES --- */
+/* (This ensures the toast we call in the component looks good) */
+
+.toast-confirm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 5px;
+}
+
+.toast-confirm span {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.toast-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.toast-btn-yes,
+.toast-btn-no {
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+}
+
+.toast-btn-yes {
+  background: #ff7675;
+  color: white;
+}
+
+.toast-btn-no {
+  background: #dfe6e9;
+  color: #2d3436;
+}
+.btn-icon-delete {
+  background: transparent;
+  border: none;
+  /* Use the variable that automatically flips color */
+  color: var(--text-primary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+/* On hover, we make it red so it's clear it's a delete action */
+.btn-icon-delete:hover {
+  background-color: rgba(214, 48, 49, 0.15);
+  color: #d63031; /* Bright red */
+  transform: scale(1.1);
+}
+
+/* Ensure the SVG inside inherits the color */
+.btn-icon-delete svg {
+  stroke: currentColor;
+  fill: none;
+}

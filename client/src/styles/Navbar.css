@@ -1,0 +1,176 @@
+/* src/styles/Navbar.css */
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 2rem;
+  height: 70px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Light Mode Glass Effect */
+.navbar.light {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid #e0e0e0;
+}
+
+/* Dark Mode Solid Depth */
+.navbar.dark {
+  background: #1a1a1a;
+  border-bottom: 1px solid #333;
+}
+
+/* Brand/Logo */
+.nav-brand a {
+  font-size: 1.5rem;
+  font-weight: 800;
+  text-decoration: none;
+  background: linear-gradient(90deg, #0984e3, #00b894);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -1px;
+}
+
+/* Links Container */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  transition: color 0.2s;
+}
+
+.nav-links a:hover {
+  color: var(--primary-color);
+}
+
+/* User Info */
+.user-email {
+  font-size: 0.85rem;
+  background: var(--bg-color);
+  padding: 4px 12px;
+  border-radius: 20px;
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+}
+
+/* Buttons */
+.btn-theme {
+  background: none;
+  border: 1px solid var(--border-color);
+  padding: 6px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: var(--text-primary);
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.btn-theme:hover {
+  background: var(--bg-color);
+}
+
+.btn-logout {
+  background-color: #ff7675;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.btn-logout:hover {
+  background-color: #d63031;
+  transform: translateY(-1px);
+}
+/* ... Keep existing styles above ... */
+
+/* Hamburger Button Styling */
+.menu-toggle {
+  display: none; /* Hidden on Desktop */
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color: var(--text-primary);
+  transition: 0.3s;
+  border-radius: 2px;
+}
+
+/* TABLET & MOBILE BREAKPOINT */
+@media (max-width: 992px) {
+  .menu-toggle {
+    display: flex;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 100%;
+    background: var(--card-bg);
+    flex-direction: column;
+    padding: 2rem;
+    gap: 20px;
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+
+    /* Hide by default */
+    transform: translateY(-150%);
+    opacity: 0;
+    transition: all 0.4s ease-in-out;
+    pointer-events: none;
+  }
+
+  .nav-links.open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .user-email {
+    width: fit-content;
+  }
+
+  /* Hamburger Animation to 'X' */
+  .bar.open:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  .bar.open:nth-child(2) {
+    opacity: 0;
+  }
+  .bar.open:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 0.8rem 1rem;
+  }
+
+  .nav-brand a {
+    font-size: 1.2rem;
+  }
+}
