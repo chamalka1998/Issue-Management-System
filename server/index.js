@@ -29,4 +29,3 @@ connectDB(process.env.MONGO_URI)
 // Export for Vercel
 module.exports = app;
 module.exports.handler = serverless(app);
-//for testing purposes only
