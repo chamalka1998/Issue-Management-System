@@ -8,8 +8,6 @@ Built using the **MERN stack** and powered by **Redux Toolkit + TypeScript**.
 
 ## 🚀 Demo Access
 
-Want to explore instantly without registration?
-
 ```
 Email: newnop@email.com
 Password: 123456
