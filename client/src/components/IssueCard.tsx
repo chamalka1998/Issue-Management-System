@@ -17,7 +17,9 @@ const IssueCard = ({ issue }: Props) => {
 
     // Use toast.promise for a better UI than window.confirm
     toast.promise(
-      dispatch(updateIssue({ id: issue._id, status: newStatus })).unwrap(),
+      dispatch(
+        updateIssue({ id: issue._id, updates: { status: newStatus } }),
+      ).unwrap(),
       {
         loading: "Updating status...",
         success: `Status changed to ${newStatus}`,
@@ -30,7 +32,9 @@ const IssueCard = ({ issue }: Props) => {
     if (newPriority === issue.priority) return;
 
     toast.promise(
-      dispatch(updateIssue({ id: issue._id, priority: newPriority })).unwrap(),
+      dispatch(
+        updateIssue({ id: issue._id, updates: { priority: newPriority } }),
+      ).unwrap(),
       {
         loading: "Changing priority...",
         success: `Priority is now ${newPriority}`,

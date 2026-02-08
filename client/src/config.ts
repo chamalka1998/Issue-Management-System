@@ -1,3 +1,3 @@
-export const BASE_URL = 'https://issue-management-system-newnop.vercel.app';
+export const BASE_URL = "https://issue-management-system-pi.vercel.app";
 
 // http://localhost:5000

@@ -4,6 +4,7 @@ import { useAppDispatch, useAppSelector } from "../app/hooks";
 import { addIssue } from "../features/issues/issueSlice";
 import type { Issue } from "../types";
 import "../styles/AddIssue.css";
+import toast from "react-hot-toast";
 
 const AddIssue = () => {
   const navigate = useNavigate();
@@ -27,11 +28,37 @@ const AddIssue = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // 1. Sanitize the data before sending to Redux/API
+    const sanitizedData = {
+      ...formData,
+      title: formData.title?.trim(),
+      description: formData.description?.trim(),
+    };
+
+    // 2. Validation check for empty strings after trimming
+    if (!sanitizedData.title || !sanitizedData.description) {
+      return toast.error("Please fill in all fields.");
+    }
+
+    // 3. Start the loading toast
+    const toastId = toast.loading("Saving issue...");
+
     try {
-      await dispatch(addIssue(formData)).unwrap();
-      navigate("/dashboard");
-    } catch {
-      alert("Failed to create issue. Please check your token/auth.");
+      // 4. Dispatch the action and unwrap to catch errors locally
+      await dispatch(addIssue(sanitizedData)).unwrap();
+
+      toast.success("Issue created successfully!", { id: toastId });
+
+      // Delay navigation so the user sees the success state
+      setTimeout(() => navigate("/dashboard"), 1200);
+    } catch (error: unknown) {
+      // 5. Handle error toast
+      const errorMessage =
+        error instanceof Error
+          ? error.message
+          : "Failed to create issue. Check your connection.";
+      toast.error(errorMessage, { id: toastId });
     }
   };
 

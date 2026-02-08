@@ -20,6 +20,7 @@ import Footer from "./components/Footer";
 import { Toaster } from "react-hot-toast";
 import "./styles/Toast.css"; // Import global styles
 import { useEffect } from "react";
+import NotFound from "./pages/NotFound";
 
 const App = () => {
   const user = useAppSelector((state: RootState) => state.auth.user);
@@ -88,6 +89,7 @@ const App = () => {
 
               {/* Default Redirect */}
               <Route path="/" element={<Navigate to="/dashboard" />} />
+              <Route path="*" element={<NotFound />} />
             </Routes>
           </div>
 

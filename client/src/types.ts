@@ -7,7 +7,7 @@ export interface User {
 }
 
 export interface Issue {
-
+ _id?: string;
   title: string;
   description: string;
   status: 'Open' | 'In Progress' | 'Resolved'; // Fixed options 
